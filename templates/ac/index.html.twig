@@ -1,0 +1,72 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Hello ACController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/home/mballo/Bureau/Symfony/mballo/src/Controller/ACController.php'|file_link(0) }}">src/Controller/ACController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/home/mballo/Bureau/Symfony/mballo/templates/ac/index.html.twig'|file_link(0) }}">templates/ac/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% endblock %} #}
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<table class="table table-dark">
+		<thead>
+			<tr>
+				<th scop="col">Email</th>
+				<th scop="col">Password</th>
+				<th scop="col">Nom Complet</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			{% for ac in acs %}
+
+				<tr class="table-active">
+					<td>
+						{{ ac.email }}</td>
+
+
+					<td>
+						{{ ac.password}}</td>
+
+
+					<td>
+						{{ ac.nomComplet }}</td>
+
+
+					<td>
+						<button class="btn btn-success btn-sm">
+							<a href="{{ path('edit-classe',{'id':ac.id}) }}">Modifier</a>
+						</button>
+
+
+						<button type="submit" class="btn btn-danger btn-sm">
+							<a href="{{ path('delete-classe',{'id':ac.id}) }}">Supprimer</a>
+
+						</button>
+
+
+						<button class=" btn btn-info btn-sm">Details</button>
+					</td>
+
+				</tr>
+			{% endfor %}
+
+		</tbody>
+	</table>
+{% endblock %}

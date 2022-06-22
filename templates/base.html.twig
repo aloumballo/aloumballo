@@ -1,19 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+
+		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		{% block stylesheets %}
+			<link rel="stylesheet" href="css/style.css">
+
+
+			<link
+			rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+			<!-- CSS only -->
+
+
+			<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+		<!-- JavaScript Bundle with Popper -->
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+
+	</head>
+	<body>
+		<nav class="navbar bg-primary">
+			<a class="navbar-brand" href="#">Navbar</a>
+			<button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+			<div class="collapse navbar-collapse" id="collapsibleNavId">
+				<ul class="navbar-nav me-auto mt-2 mt-lg-0">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home
+							<span class="visually-hidden">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownId">
+							<a class="dropdown-item" href="#">Action 1</a>
+							<a class="dropdown-item" href="#">Action 2</a>
+						</div>
+					</li>
+				</ul>
+				<form class="d-flex my-2 my-lg-0">
+					<input class="form-control me-sm-2" type="text" placeholder="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</div>
+		</nav>
+		{# //pour ce qui se trouve en dessous du nav #}
+		<div class="container-fluid bg-secondary py-4 mb-5">
+			<h3 class="text-white text-center">Gestion Etudiant</h3>
+		</div>
+	</body>
+	<div class="container"> {% block body %}{% endblock %}
+		</div>
+	</html>
+</body></html>

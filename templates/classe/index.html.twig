@@ -1,0 +1,106 @@
+{# {% extends 'base.html.twig' %}
+{% block body %}
+
+	<table class="table table-striped">
+
+		<thead>
+			<tr>
+				<th scop="col">Libelle</th>
+				<th scop="col">Filiére</th>
+				<th scop="col">Niveaux</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for classe in classes %}
+
+				<tr>
+
+					<td>
+						{{ classe.libelle }}</td>
+
+					<td>
+						{{ classe.filiere}}</td>
+
+					<td>
+						{{ classe.niveau }}</td>
+
+
+					<td>
+
+
+						<button class=" btn btn-info btn-sm">Modifier</button>
+
+
+						<form action="/deleteClasse" method="POST">
+							<input type="hidden" name="id" value="<?= $classe->id ?>">
+							<button type="submit" class="btn btn-success btn-sm">
+								<a href="" class="btn btn-info btn-sm">Suprimer</a>
+							</button>
+
+						</form>
+						<button type="">
+							<a href="" class="btn btn-danger btn-sm">Details</a>
+						</button>
+
+					</td>
+
+				</tr>
+			{% endfor %}
+
+
+		</tbody>
+
+	</table>
+{% endblock %} #}
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<table class="table table-dark">
+		<thead>
+			<tr>
+				<th scop="col">Libelle</th>
+				<th scop="col">Filiére</th>
+				<th scop="col">Niveaux</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			{% for classe in classes %}
+
+				<tr class="table-active">
+					<td>
+						{{ classe.libelle }}</td>
+
+
+					<td>
+						{{ classe.filiere}}</td>
+
+
+					<td>
+						{{ classe.niveau }}</td>
+
+
+					<td>
+						<button class="btn btn-success btn-sm">
+							<a href="{{ path('edit-classe',{'id':classe.id}) }}">Modifier</a>
+						</button>
+
+
+						<button type="submit" class="btn btn-danger btn-sm">
+							<a href="{{ path('delete-classe',{'id':classe.id}) }}">Supprimer</a>
+
+						</button>
+
+
+						<button class=" btn btn-info btn-sm">Details</button>
+					</td>
+
+				</tr>
+			{% endfor %}
+
+		</tbody>
+	</table>
+{% endblock %}

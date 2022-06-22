@@ -1,0 +1,64 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Hello ModuleController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ '/home/mballo/Bureau/Symfony/mballo/src/Controller/ModuleController.php'|file_link(0) }}">src/Controller/ModuleController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/home/mballo/Bureau/Symfony/mballo/templates/module/index.html.twig'|file_link(0) }}">templates/module/index.html.twig</a></code></li>
+    </ul>
+</div>
+{% endblock %} #}
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<table class="table table-dark">
+		<thead>
+			<tr>
+				<th scop="col">Libelle</th>
+				<th scop="col">LibelleModule</th>
+
+
+			</tr>
+
+		</thead>
+		<tbody>
+			{% for mudule in modules %}
+
+				<tr class="table-active">
+					<td>
+						{{ module.libelle }}</td>
+
+
+					<td>
+						{{ module.libelleModule}}</td>
+
+
+					<td>
+						<button class="btn btn-success btn-sm">Modifier</button>
+
+
+						<button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
+
+
+						<button class=" btn btn-info btn-sm">Details</button>
+					</td>
+
+				</tr>
+			{% endfor %}
+
+		</tbody>
+	</table>
+{% endblock %}
